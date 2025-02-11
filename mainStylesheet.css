@@ -1,0 +1,73 @@
+/* Overall styling */
+body{
+    background-color: rgb(115, 141, 223);
+    color: white;
+    font-family: Helvetica, "Lucida Console", sans-serif;
+  }
+  
+  span{
+    text-align: left;
+    display: none;
+  }
+  
+  img{
+    text-align: center;
+    object-fit: contain;
+  }
+  
+  button{
+    text-align: center;
+    color: white;
+    background-color: rgb(115, 141, 223);
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 5px solid white;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    width: 33%;
+    margin: 3px;
+  }
+  
+  button:hover span{
+    display: block;
+    font-size: 18px;
+  }
+  
+  /* Title */
+  .title {
+    text-align: center;
+    border-bottom: 2px solid white;
+    margin-bottom: 15px;
+  }
+  
+  /* Rotary exam */
+  
+  .rotaryList{
+    float: left;
+  }
+  
+  .rotaryList:hover{
+    font-size: 24px;
+    background-color: rgb(115,185,223);
+  }
+  
+  /* Fixed wing exam */
+  .fixedList{
+    float: middle;
+  }
+  
+  .fixedList:hover{
+    font-size: 24px;
+    background-color: rgb(115, 223, 135);
+  }
+  
+  /* senior exam */
+  .seniorList{
+    float: right;
+  }
+  
+  .seniorList:hover{
+    font-size: 24px;
+    background-color: rgb(206, 69, 69);
+  }
