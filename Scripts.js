@@ -105,14 +105,14 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
       for (j = 1; j <= daysInMonth(mm-1, yyyy); j++){
         date = document.createElement("DIV");
         date.setAttribute("class","day");
-        if (offset-j > 0){
+        if (offset-j >= 0){
           date.setAttribute("class","nMonth")
           number = "<p style=\"margin-top: 3px;\">" + String(dayStart+j) + "</p>";
         } else if(j > daysInMonth(mm-1,yyyy)) {
           date.setAttribute("class","nMonth")
           number = "<p style=\"margin-top: 3px;\">" + String(j%(daysInMonth(mm-1,yyyy))) + "</p>";
         } else {
-          number = "<p style=\"margin-top: 3px;\">" + String(j%(daysInMonth(mm-1,yyyy)-offset+1)) + "</p>";
+          number = "<p style=\"margin-top: 3px;\">" + String((j-offset)%(daysInMonth(mm-1,yyyy)+1)) + "</p>";
         }
         date.innerHTML = number;
         calendarDates.appendChild(date);
