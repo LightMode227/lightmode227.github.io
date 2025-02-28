@@ -135,5 +135,5 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
           calendars[i].classList.add("calendarHide");
         }
       }
-document.addEventListener("click", closeCalendars);
+document.addEventListener("click", closeCalendars());
 }
