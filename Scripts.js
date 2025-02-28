@@ -135,3 +135,4 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
       }
   });
 document.addEventListener("click", closeCalendars);
+}
