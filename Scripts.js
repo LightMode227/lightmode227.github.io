@@ -124,10 +124,10 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
       }
     }
 
-   calendarIcon.addEventListener("click", function(e) { //event listener for click on the date time element
+   calendarIcon[0].addEventListener("click", function(e) { //event listener for click on the date time element
         e.stopPropagation(); //prevent the click triggering any parent DIVs
         //closeCalendars(); //close the calendar with the function
-        this.calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
+        calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
       });
   
   function closeCalendars(){ /* closes all calendars  in a document */
