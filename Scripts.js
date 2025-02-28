@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
       for (j = 1; j < numOptions; j++){
         optionDiv = document.createElement("DIV"); /* create a DIV for each option */
         optionDiv.innerHTML = selectElement.options[j].innerHTML;
+        
         optionDiv.addEventListener("click", function(e){ /* When item is clicked update selected option at top  - don't fully understand this function*/
           var y, i, k, custom, selectedItem, numSels, yLength;
           custom = this.parentNode.parentNode.getElementsByTagName("select")[0];
@@ -121,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
         calendarDates.appendChild(date);
       }
     }
-  customDateTime.click();
 
    calendarIcon.addEventListener("click", function(e) { //event listener for click on the date time element
         e.stopPropagation(); //prevent the click triggering any parent DIVs
