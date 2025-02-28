@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
   
   
     /* Custom dateTime select */
-    var customDateTime, numCustomDateTime, calendar, i, j, calendarDates, date, month, number, today, dd, mm, wd, yyyy, offset, prevmm;
+    var customDateTime, numCustomDateTime, calendar, i, j, calendarDates, date, month, number, today, dd, mm, wd, yyyy, offset, prevmm, dayStart;
     customDateTime = document.getElementsByClassName("CustomDateTime");
     numCustomDateTime = customDateTime.length;
     
@@ -81,40 +81,38 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
       return new Date(parseInt(year), parseInt(month) + 1, 0).getDate();
     }
     
-    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     today = new Date();
     dd = String(today.getDate()).padStart(2, '0');
     mm = String(today.getMonth() + 1).padStart(2, '0');
     yyyy = today.getFullYear();
-    wd = days.indexOf(String(today).substr(0,3));
-    offset = wd+1-(dd%7);
+    wd = today.getDay();
+    offset = wd-(dd%7);
     prevmm = daysInMonth(mm-2,yyyy);
   
-    alert(dd,mm,yyyy,wd,offset,prevmm);
     for (i = 0; i < numCustomDateTime; i++){
       calendar = document.createElement("DIV");
       calendar.setAttribute("class","calendar");
       customDateTime[i].appendChild(calendar);
       month = document.createElement("DIV");
       month.setAttribute("class","month")
-      month.innerHTML = "November";
+      month.innerHTML = today.toLocaleString('default', { month: 'long' });
       calendar.appendChild(month);
       calendarDates = document.createElement("DIV");
       calendarDates.setAttribute("class","calendarDates")
       calendar.appendChild(calendarDates);
+      dayStart = daysInMonth(mm-2, yyyy)-offset;
       
-      for (j = 0; j < 35; j++){ /* need to adjust for days in month */
+      for (j = 1; j <= daysInMonth(mm-1, yyyy); j++){
         date = document.createElement("DIV");
         date.setAttribute("class","day");
-        if (Offset-j != 0){
+        if (offset-j > 0){
           date.setAttribute("class","nMonth")
-          number = "<p style=\"margin-top: 3px;\">" + String(prevmm-offset +j+1) + "</p>";
-          offset--;
+          number = "<p style=\"margin-top: 3px;\">" + String(dayStart+j) + "</p>";
         } else if(j > daysInMonth(mm-1,yyyy)) {
           date.setAttribute("class","nMonth")
-          number = "<p style=\"margin-top: 3px;\">" + String(j%(daysInMonth(mm-1,yyyy)+1)+1) + "</p>";
+          number = "<p style=\"margin-top: 3px;\">" + String(j%(daysInMonth(mm-1,yyyy))) + "</p>";
         } else {
-          number = "<p style=\"margin-top: 3px;\">" + String(j%(daysInMonth(mm-1,yyyy)+1)) + "</p>";
+          number = "<p style=\"margin-top: 3px;\">" + String(j%(daysInMonth(mm-1,yyyy)-offset+1)) + "</p>";
         }
         date.innerHTML = number;
         calendarDates.appendChild(date);
