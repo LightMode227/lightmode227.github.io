@@ -119,19 +119,19 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
         calendarDates.appendChild(date);
       }
     }
+  customDateTime.click();
 
-   calendar.addEventListener("click", function(e) { /* when the custom select is clicked open it and close others - don't fully understand this function*/
+   customDateTime.addEventListener("click", function(e) { /* when the custom select is clicked open it and close others - don't fully understand this function*/
         e.stopPropagation();
         closeCalendars(this);
-        this.nextSibling.classList.toggle("selectHide");
+        this.nextSibling.classList.toggle("calendarHide");
       });
   
   function closeCalendars(element){ /* closes all calendars  in a document */
         calendars = document.getElementsByClassName("calendar");
-        calendar.classList.add("selectHide");
         for (i = 0; i <calendars.lengthl; i++){
           calendars[i].classList.add("calendarHide");
         }
       }
-    document.addEventListener("click", closeAllSelect);
   });
+document.addEventListener("click", closeCalendars);
