@@ -110,9 +110,9 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
           number = "<p style=\"margin-top: 3px;\">" + String(dayStart+j) + "</p>";
         } else if(j > daysInMonth(mm-1,yyyy)) {
           date.setAttribute("class","nMonth")
-          number = "<p style=\"margin-top: 3px;\">" + String(j%(daysInMonth(mm-1,yyyy))) + "</p>";
+          number = "<p style=\"margin-top: 3px;\">" + String(j%(daysInMonth(mm-1,yyyy))+1) + "</p>";
         } else {
-          number = "<p style=\"margin-top: 3px;\">" + String((j-offset)%(daysInMonth(mm-1,yyyy)+1)) + "</p>";
+          number = "<p style=\"margin-top: 3px;\">" + String(j%(daysInMonth(mm-1,yyyy)-offset+1)) + "</p>";
         }
         date.innerHTML = number;
         calendarDates.appendChild(date);
