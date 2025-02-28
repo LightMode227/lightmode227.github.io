@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() { /* wait until page loads */
+
   
     /* Drop down list */
     var customSelect, i, j, numSelects, numOptions, selectElement, selectedDiv, optionsDiv, optionDiv;
@@ -136,4 +136,3 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
         }
       }
 document.addEventListener("click", closeCalendars());
-}
