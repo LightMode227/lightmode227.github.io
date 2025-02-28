@@ -73,10 +73,12 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
   
   
     /* Custom dateTime select */
+  // THERE IS NOT FULL SUPPORT FOR MULTIPLE CALENDARS MOSTLY TO DO WITH CLICKING FUNCTIONS
   
-    var customDateTime, numCustomDateTime, calendar, i, j, calendarDates, date, month, number, today, dd, mm, wd, yyyy, offset, prevmm, dayStart;
+    var customDateTime, numCustomDateTime, calendar, calendarIcon, calendarDates, date, month, number, today, dd, mm, wd, yyyy, offset, prevmm, dayStart;
     customDateTime = document.getElementsByClassName("CustomDateTime");
     numCustomDateTime = customDateTime.length;
+    calendarIcon = document.getElementsByClassName("calendarIcon");
     
     function daysInMonth (month, year) {
       return new Date(parseInt(year), parseInt(month) + 1, 0).getDate();
@@ -121,10 +123,10 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
     }
   customDateTime.click();
 
-   customDateTime.addEventListener("click", function(e) { //event listener for click on the date time element
+   calendarIcon.addEventListener("click", function(e) { //event listener for click on the date time element
         e.stopPropagation(); //prevent the click triggering any parent DIVs
         closeCalendars(); //close the calendar with the function
-        this.nextSibling.classList.toggle("calendarHide"); //toggle whether calendarHide is part of the class list
+        calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
       });
   
   function closeCalendars(){ /* closes all calendars  in a document */
