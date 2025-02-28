@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
   
   
     /* Custom dateTime select */
+  
     var customDateTime, numCustomDateTime, calendar, i, j, calendarDates, date, month, number, today, dd, mm, wd, yyyy, offset, prevmm, dayStart;
     customDateTime = document.getElementsByClassName("CustomDateTime");
     numCustomDateTime = customDateTime.length;
@@ -118,4 +119,19 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
         calendarDates.appendChild(date);
       }
     }
+
+   calendar.addEventListener("click", function(e) { /* when the custom select is clicked open it and close others - don't fully understand this function*/
+        e.stopPropagation();
+        closeCalendars(this);
+        this.nextSibling.classList.toggle("selectHide");
+      });
+  
+  function closeCalendars(element){ /* closes all calendars  in a document */
+        calendars = document.getElementsByClassName("calendar");
+        calendar.classList.add("selectHide");
+        for (i = 0; i <calendars.lengthl; i++){
+          calendars[i].classList.add("calendarHide");
+        }
+      }
+    document.addEventListener("click", closeAllSelect);
   });
