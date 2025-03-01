@@ -123,7 +123,6 @@
   }
 
  calendarIcon[0].addEventListener("click", function(e) { //event listener for click on the date time element
-      e.stopPropagation(); //prevent the click triggering any parent DIVs
       calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
     });
  calendarIcon[0].click();
