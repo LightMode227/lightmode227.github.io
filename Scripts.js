@@ -49,6 +49,12 @@
       this.nextSibling.classList.toggle("selectHide");
     });
   }
+
+   function closeCalendars(){ /* closes all calendars  in a document */
+          if (calendar){
+            calendar.classList.add("calendarHide");
+          }
+        }
   
     function closeAllSelect(element){ /* closes all select boxes in a document */
       var options, selectedOption , i, numOptions, selectedOptionLength, arrNo = [];
@@ -123,16 +129,11 @@
   }
 
  calendarIcon[0].addEventListener("click", function(e) { //event listener for click on the date time element
+      e.stopPropagation();   
       closeAllSelect(selectedDiv);   
-      e.stopPropagation();
       calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
     });
  calendarIcon[0].click();
 
-function closeCalendars(){ /* closes all calendars  in a document */
-      if (calendar){
-        calendar.classList.add("calendarHide");
-      }
-    }
 document.addEventListener("click", closeAllSelect);
 document.addEventListener("click", closeCalendars);
