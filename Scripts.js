@@ -130,7 +130,8 @@ document.addEventListener('DOMContentLoaded', function() { /* wait until page lo
       });
   
   function closeCalendars(){ /* closes all calendars  in a document */
-        calendar.classlist.add("calendarHide");
+        calendar = document.getElementsByClassName("calendar");
+        calendar[0].classlist.add("calendarHide");
       }
   document.addEventListener("click", closeCalendars);
 });
