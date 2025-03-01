@@ -128,7 +128,7 @@
     });
 
 function closeCalendars(){ /* closes all calendars  in a document */
-      calendars = document.getElementByClassName("calendar");
+      calendars = document.getElementsByClassName("calendar");
       calendars[0].classlist.add("calendarHide");
     }
 document.addEventListener("click", closeCalendars);
