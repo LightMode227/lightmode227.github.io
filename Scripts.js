@@ -130,6 +130,6 @@
 
 function closeCalendars(){ /* closes all calendars  in a document */
       const calendar1 = document.querySelector('.calendar');
-      calendars1.classlist.add("calendarHide");
+      calendar1.classlist.add("calendarHide");
     }
 document.addEventListener("click", closeCalendars);
