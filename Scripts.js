@@ -129,6 +129,6 @@
  calendarIcon[0].click();
 
 function closeCalendars(){ /* closes all calendars  in a document */
-      calendar.setAttribute("class","calendar calendarHide");
+      calendar.classList.add("calendarHide");
     }
 document.addEventListener("click", closeCalendars);
