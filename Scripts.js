@@ -44,6 +44,7 @@
     customSelect[i].appendChild(optionsDiv); /* add the option list to the custom select */
     selectedDiv.addEventListener("click", function(e) { /* when the custom select is clicked open it and close others - don't fully understand this function*/
       e.stopPropagation();
+      closeCalendars()
       closeAllSelect(this);
       this.nextSibling.classList.toggle("selectHide");
     });
@@ -123,6 +124,7 @@
 
  calendarIcon[0].addEventListener("click", function(e) { //event listener for click on the date time element
       e.stopPropagation();
+      closeAllSelect(selectedDiv);
       calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
     });
  calendarIcon[0].click();
