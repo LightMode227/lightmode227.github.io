@@ -123,8 +123,8 @@
   }
 
  calendarIcon[0].addEventListener("click", function(e) { //event listener for click on the date time element
+      closeAllSelect(selectedDiv);   
       e.stopPropagation();
-      closeAllSelect(selectedDiv);
       calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
     });
  calendarIcon[0].click();
