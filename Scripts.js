@@ -64,7 +64,7 @@
         }
       }
       for (i = 0; i < numOptions; i++) {
-        if (arrNo.indexOf(i)) {
+        if (!arrNo.includes(i)) {
           options[i].classList.add("selectHide");
         }
       }
