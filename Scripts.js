@@ -126,6 +126,7 @@
       e.stopPropagation(); //prevent the click triggering any parent DIVs
       calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
     });
+ calendarIcon[0].click();
 
 function closeCalendars(){ /* closes all calendars  in a document */
       const calendar1 = document.querySelector('.calendar');
