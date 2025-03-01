@@ -68,7 +68,6 @@
         }
       }
     }
-  document.addEventListener("click", closeAllSelect);
 
 
 
@@ -123,6 +122,7 @@
   }
 
  calendarIcon[0].addEventListener("click", function(e) { //event listener for click on the date time element
+      e.stopPropagation();
       calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
     });
  calendarIcon[0].click();
@@ -132,4 +132,5 @@ function closeCalendars(){ /* closes all calendars  in a document */
         calendar.classList.add("calendarHide");
       }
     }
+document.addEventListener("click", closeAllSelect);
 document.addEventListener("click", closeCalendars);
