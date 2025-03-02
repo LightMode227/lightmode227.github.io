@@ -95,7 +95,9 @@
   mm = String(today.getMonth() + 1).padStart(2, '0');
   yyyy = today.getFullYear();
   wd = today.getDay();
-  alert(wd);
+  if (wd === 0){
+    wd = 7;
+  }
   offset = wd-(dd%7);
   prevmm = daysInMonth(mm-2,yyyy);
 
