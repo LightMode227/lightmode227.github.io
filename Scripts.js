@@ -98,7 +98,7 @@
   if (wd === 0){
     wd = 7;
   }
-  offset = wd-(dd%7);
+  offset = 7-Math.abs(wd-(dd%7));
   prevmm = daysInMonth(mm-2,yyyy);
 
   for (i = 0; i < numCustomDateTime; i++){
