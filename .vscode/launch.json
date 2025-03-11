@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "type": "msedge",
             "request": "launch",
             "name": "Open rotaryExam.html",
             "file": "c:\\Users\\Archie\\Documents\\GitHub\\AMB-Website\\rotaryExam.html"
