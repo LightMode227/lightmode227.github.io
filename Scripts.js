@@ -101,47 +101,76 @@
   offset = 7-Math.abs(wd-(dd%7));
   prevmm = daysInMonth(mm-2,yyyy);
 
+  //setup calendar div for each custom date time
   for (i = 0; i < numCustomDateTime; i++){
+
+    //create a calendar DIV
     calendar = document.createElement("DIV");
     calendar.setAttribute("class","calendar");
     customDateTime[i].appendChild(calendar);
+
+    //add the month name to the top of the calendar
     month = document.createElement("DIV");
     month.setAttribute("class","month")
     month.innerHTML = today.toLocaleString('default', { month: 'long' });
     calendar.appendChild(month);
+
+    //add grid container for the dates
     calendarDates = document.createElement("DIV");
     calendarDates.setAttribute("class","calendarDates")
     calendar.appendChild(calendarDates);
+
+    //add time slots DIV to calendar
+    timeSlots = document.createElement("DIV");
+    timeSlots.setAttribute("class", "timeSlots");
+    calendar.appendChild(timeSlots);
+
+    //get the first day that should be on the calendar
     dayStart = daysInMonth(mm-2, yyyy)-offset;
     
+    //append all the days in the month
     for (j = 1; j <= 42; j++){
+
+      //create day DIV
       date = document.createElement("DIV");
       date.setAttribute("class","day");
+
+      //if it is in the previous month mark it with the nMonth class to make it unclickable
       if (offset-j >= 0){
         date.setAttribute("class","nMonth")
         number = "<p style=\"margin-top: 3px;\">" + String(dayStart+j) + "</p>";
-      } else if(j-offset > daysInMonth(mm-1,yyyy)) {
+      } 
+      
+      // if it is in the next month mark it with the nMonth class to make it unclickable
+      else if(j-offset > daysInMonth(mm-1,yyyy)) {
         date.setAttribute("class","nMonth")
         number = "<p style=\"margin-top: 3px;\">" + String((j-offset)%(daysInMonth(mm-1,yyyy))) + "</p>";
-      } else {
+      } 
+      
+      //if it's in the correct month make it clickable
+      else {
         number = "<p style=\"margin-top: 3px;\">" + String((j-offset)%(daysInMonth(mm-1,yyyy)+1)) + "</p>";
-        date.setAttribute("id",String((j-offset)%(daysInMonth(mm-1,yyyy)+1)));
+        date.setAttribute("id",String((j-offset)%(daysInMonth(mm-1,yyyy)+1))); //set ID to the day
+
+        //add click event to each day
         date.addEventListener("click", function(e){
           e.stopPropagation();
-          var selectedDay = new Date(yyyy,mm-1,this.id);
-          dateDisplay = document.getElementById("dateDisplay");
-          dateDisplay.innerHTML = selectedDay.toLocaleDateString();
+          var selectedDay = new Date(yyyy,mm-1,this.id); //create a date with that day and assign it to selected day
+          dateDisplay = document.getElementById("dateDisplay"); 
+          dateDisplay.innerHTML = selectedDay.toLocaleDateString(); //display the selected date as text
         });
       }
-      date.innerHTML = number;
-      calendarDates.appendChild(date);
+
+      date.innerHTML = number; //assign the number to the day DIV
+      calendarDates.appendChild(date); //add the day to the calendar
     }
   }
 
- calendarIcon[0].addEventListener("click", function(e) { //event listener for click on the date time element
+//event listener for click on the calendar icon
+ calendarIcon[0].addEventListener("click", function(e) {
       e.stopPropagation();   
       closeAllSelect(null);   
-      calendar.classList.toggle("calendarHide");//toggle whether calendarHide is part of the class list
+      calendar.classList.toggle("calendarHide"); //toggle whether calendarHide is part of the class list
     });
  calendarIcon[0].click();
 
