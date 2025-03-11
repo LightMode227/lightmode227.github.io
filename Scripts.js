@@ -125,6 +125,13 @@
         number = "<p style=\"margin-top: 3px;\">" + String((j-offset)%(daysInMonth(mm-1,yyyy))) + "</p>";
       } else {
         number = "<p style=\"margin-top: 3px;\">" + String((j-offset)%(daysInMonth(mm-1,yyyy)+1)) + "</p>";
+        date.setAttribute("id",String((j-offset)%(daysInMonth(mm-1,yyyy)+1)));
+        date.addEventListener("click", function(e){
+          e.stopPropagation();
+          var selectedDay = new Date(yyyy,mm,this.id);
+          dateDisplay = document.getElementById("dateDisplay");
+          dateDisplay.innerHTML = selectedDay.toLocaleDateString();
+        });
       }
       date.innerHTML = number;
       calendarDates.appendChild(date);
