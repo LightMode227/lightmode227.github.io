@@ -3,6 +3,7 @@
   var customSelect, i, j, numSelects, numOptions, selectElement, selectedDiv, optionsDiv, optionDiv;
   customSelect = document.getElementsByClassName("customSelect"); /* find custom selects */
   numSelects = customSelect.length;
+  
   for (i = 0; i < numSelects; i++) { /* loop through each custom select to create a DIV for it */
     selectElement = customSelect[i].getElementsByTagName("select")[0];
     numOptions = selectElement.length;
@@ -42,7 +43,7 @@
       optionsDiv.appendChild(optionDiv); /* add the option to the option list */
     }
     customSelect[i].appendChild(optionsDiv); /* add the option list to the custom select */
-    selectedDiv.addEventListener("click", function(e) { /* when the custom select is clicked open it and close others - don't fully understand this function*/
+    selectedDiv.addEventListener("click", function(e) { // when the custom select is clicked open it and close others
       e.stopPropagation();
       closeCalendars()
       closeAllSelect(this);
@@ -121,9 +122,12 @@
     calendar.appendChild(calendarDates);
 
     //add time slots DIV to calendar
-    timeSlots = document.createElement("DIV");
-    timeSlots.setAttribute("class", "timeSlots");
-    calendar.appendChild(timeSlots);
+    timeSelector = document.createElement("DIV");
+    timeSelector.setAttribute("class", "timeSelector");
+    calendar.appendChild(timeSelector);
+    timeSlots = document.createElement("select"); //create the select for times
+    timeSlots.setAttribute("class", "customSelect");
+    timeSelector.appendChild(timeSlots);
 
     //get the first day that should be on the calendar
     dayStart = daysInMonth(mm-2, yyyy)-offset;
@@ -164,9 +168,17 @@
       date.innerHTML = number; //assign the number to the day DIV
       calendarDates.appendChild(date); //add the day to the calendar
     }
+
+    for (j = 0; j < 96; j++){ //create select for times ***NOT WORKING***
+      timeSlot = document.createElement("option");
+      timeSlot.setAttribute("class", "timeSlot");
+      timeSlot.innerHTML = String(Math.floor(j/4)) +":"+ String((j%4)*15);
+      timeSlot.setAttribute("value",String(Math.floor(j/4)) +":"+ String((j%4)*15));
+      timeSlots.appendChild(timeSlot);
+    }
   }
 
-//event listener for click on the calendar icon
+//event listener for click on the calendar icon (only works with 1)
  calendarIcon[0].addEventListener("click", function(e) {
       e.stopPropagation();   
       closeAllSelect(null);   

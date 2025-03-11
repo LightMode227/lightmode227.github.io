@@ -185,8 +185,8 @@ body{
     grid-template-rows: auto auto auto auto auto auto;
   }
 
-  .timeSlots{
-    display: inline-block;
+  .timeSelector{
+    position: absolute;
   }
   
   .month{
