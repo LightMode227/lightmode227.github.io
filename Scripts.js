@@ -128,7 +128,7 @@
         date.setAttribute("id",String((j-offset)%(daysInMonth(mm-1,yyyy)+1)));
         date.addEventListener("click", function(e){
           e.stopPropagation();
-          var selectedDay = new Date(yyyy,mm,this.id);
+          var selectedDay = new Date(yyyy,mm-1,this.id);
           dateDisplay = document.getElementById("dateDisplay");
           dateDisplay.innerHTML = selectedDay.toLocaleDateString();
         });
