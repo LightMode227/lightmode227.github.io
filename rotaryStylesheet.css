@@ -187,6 +187,18 @@ body{
 
   .timeSelector{
     position: absolute;
+    overflow: auto;
+    height: 183.6px;
+    right: -35%;
+    top: 0%;
+  }
+  
+  .timeSlot{
+    cursor: pointer;
+    border-radius: 3px;
+    border: solid 2px;
+    border-color: #4d4d4d;
+    margin: 2px;
   }
   
   .month{
