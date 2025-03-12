@@ -125,9 +125,6 @@
     timeSelector = document.createElement("DIV");
     timeSelector.setAttribute("class", "timeSelector");
     calendar.appendChild(timeSelector);
-    timeSlots = document.createElement("select"); //create the select for times
-    timeSlots.setAttribute("class", "customSelect");
-    timeSelector.appendChild(timeSlots);
 
     //get the first day that should be on the calendar
     dayStart = daysInMonth(mm-2, yyyy)-offset;
@@ -172,9 +169,11 @@
     for (j = 0; j < 96; j++){ //create select for times ***NOT WORKING***
       timeSlot = document.createElement("option");
       timeSlot.setAttribute("class", "timeSlot");
-      timeSlot.innerHTML = String(Math.floor(j/4)) +":"+ String((j%4)*15);
-      timeSlot.setAttribute("value",String(Math.floor(j/4)) +":"+ String((j%4)*15));
-      timeSlots.appendChild(timeSlot);
+      let hour = String(Math.floor(j/4));
+      let minutes = String((j%4)*15);
+      timeSlot.innerHTML = hour.padStart(2, '0')  +":"+ minutes.padEnd(2, '0');
+      timeSlot.setAttribute("value",hour.padStart(2, '0') +":"+ minutes.padEnd(2, '0'));
+      timeSelector.appendChild(timeSlot);
     }
   }
 
