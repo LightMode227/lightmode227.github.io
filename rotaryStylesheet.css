@@ -186,19 +186,32 @@ body{
   }
 
   .timeSelector{
+    background-color: white;
+    border-radius: 0px 8px 8px 0px;
+    border-left: solid 2px;
+    border-color: #4d4d4d;
+    padding: 2px;
     position: absolute;
     overflow: auto;
-    height: 183.6px;
+    height: 179.6px;
     right: -35%;
     top: 0%;
   }
   
   .timeSlot{
+    color: #4d4d4d;
     cursor: pointer;
     border-radius: 3px;
     border: solid 2px;
-    border-color: #4d4d4d;
+    border-color: rgb(115,185,223);
     margin: 2px;
+  }
+  
+  .timeSlot:hover{
+    margin: 1px;
+    padding: 1px;
+    background-color: rgba(115,185,223, 0.5);
+    border-color: rgba(115,185,223, 0);
   }
   
   .month{
