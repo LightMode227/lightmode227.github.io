@@ -161,6 +161,7 @@ body{
     margin: 10px;
   }
   
+  /* calendar */
   .calendarHide{
     display: none;
   }
@@ -184,36 +185,8 @@ body{
     grid-template-columns: auto auto auto auto auto auto auto;
     grid-template-rows: auto auto auto auto auto auto;
   }
-
-  .timeSelector{
-    background-color: white;
-    border-radius: 0px 8px 8px 0px;
-    border-left: solid 2px;
-    border-color: #4d4d4d;
-    padding: 2px;
-    position: absolute;
-    overflow: auto;
-    height: 179.6px;
-    right: -35%;
-    top: 0%;
-  }
   
-  .timeSlot{
-    color: #4d4d4d;
-    cursor: pointer;
-    border-radius: 3px;
-    border: solid 2px;
-    border-color: rgb(115,185,223);
-    margin: 2px;
-  }
-  
-  .timeSlot:hover{
-    margin: 1px;
-    padding: 1px;
-    background-color: rgba(115,185,223, 0.5);
-    border-color: rgba(115,185,223, 0);
-  }
-  
+  /* month */
   .month{
     color: black;
     font-size: 18px;
@@ -222,6 +195,7 @@ body{
     margin-bottom: 2px;
   }
   
+  /* days */
   .nMonth{
     font-size: 12px;
     display: inline-grid;
@@ -248,7 +222,60 @@ body{
     margin: 1px;
     padding: 1px;
   }
+
+  /* time */
+  .timeSelector{
+    background-color: white;
+    border-radius: 0px 8px 8px 0px;
+    border-left: solid 2px;
+    border-color: #b8b8b8;
+    padding: 2px;
+    position: absolute;
+    overflow: auto;
+    height: 179.6px;
+    right: -35%;
+    top: 0%;
+  }
   
+  .timeSlot{
+    color: #4d4d4d;
+    cursor: pointer;
+    border-radius: 3px;
+    border: solid 2px;
+    border-color: rgb(115,185,223);
+    margin: 5px;
+  }
+  
+  .timeSlot:hover{
+    margin: 5px 2px;
+    padding: 0px 2px;
+    /* background-color: rgba(115,185,223, 0.5);
+    border-color: rgba(115,185,223, 0); */
+  }
+
+  .timeSelectorHide{
+    display: none;
+  }
+  
+  /* scroll bar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track { /* track */
+    background: #f1f1f1;
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb { /* bar */
+    background: #888;
+    border-radius: 5px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
   
   /* Use VC */
   .container{

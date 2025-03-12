@@ -82,7 +82,7 @@
   /* Custom dateTime select */
 // THERE IS NOT FULL SUPPORT FOR MULTIPLE CALENDARS MOSTLY TO DO WITH CLICKING FUNCTIONS
 
-  var customDateTime, numCustomDateTime, calendar, calendarIcon, calendarDates, date, month, number, today, dd, mm, wd, yyyy, offset, prevmm, dayStart;
+  var customDateTime, numCustomDateTime, calendar, calendarIcon, calendarDates, date, month, number, today, dd, mm, wd, yyyy, offset, prevmm, dayStart, selectedDay;
   customDateTime = document.getElementsByClassName("CustomDateTime");
   numCustomDateTime = customDateTime.length;
   calendarIcon = document.getElementsByClassName("calendarIcon");
@@ -151,12 +151,12 @@
       //if it's in the correct month make it clickable
       else {
         number = "<p style=\"margin-top: 3px;\">" + String((j-offset)%(daysInMonth(mm-1,yyyy)+1)) + "</p>";
-        date.setAttribute("id",String((j-offset)%(daysInMonth(mm-1,yyyy)+1))); //set ID to the day
 
         //add click event to each day
         date.addEventListener("click", function(e){
           e.stopPropagation();
-          var selectedDay = new Date(yyyy,mm-1,this.id); //create a date with that day and assign it to selected day
+          timeSelector.classList.remove("timeSelectorHide") //show the time select
+          selectedDay = new Date(yyyy,mm-1,this.innerText); //create a date with that day and assign it to selected day
           dateDisplay = document.getElementById("dateDisplay"); 
           dateDisplay.innerHTML = selectedDay.toLocaleDateString(); //display the selected date as text
         });
@@ -166,15 +166,22 @@
       calendarDates.appendChild(date); //add the day to the calendar
     }
 
-    for (j = 0; j < 96; j++){ //create select for times ***NOT WORKING***
-      timeSlot = document.createElement("option");
-      timeSlot.setAttribute("class", "timeSlot");
+    for (j = 0; j < 96; j++){ //create timeslots
+      timeSlot = document.createElement("DIV");
+      timeSlot.setAttribute("class", "timeSlot"); //create time slot
       let hour = String(Math.floor(j/4));
       let minutes = String((j%4)*15);
-      timeSlot.innerHTML = hour.padStart(2, '0')  +":"+ minutes.padEnd(2, '0');
-      timeSlot.setAttribute("value",hour.padStart(2, '0') +":"+ minutes.padEnd(2, '0'));
+      timeSlot.innerHTML = hour.padStart(2, '0')  +":"+ minutes.padEnd(2, '0'); //pad times with 0
+      timeSlot.addEventListener("click", function(){ //add click event listener to times
+        var selectedTime = new Date(yyyy, mm-1,selectedDay.getDay()); //get the date that is selected
+        selectedTime.setHours(String(this.innerText).substring(0,2)); //add the hours to it
+        selectedTime.setMinutes(String(this.innerText).substring(3)); //add the minutes to it
+        timeSelector.classList.toggle("timeSelectorHide");
+        timeDisplay = document.getElementById("timeDisplay"); 
+        timeDisplay.innerHTML = selectedTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}); //display time
       timeSelector.appendChild(timeSlot);
     }
+    timeSelector.classList.add("timeSelectorHide"); //hide time select
   }
 
 //event listener for click on the calendar icon (only works with 1)
