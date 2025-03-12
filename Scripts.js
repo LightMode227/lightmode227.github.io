@@ -166,6 +166,12 @@
       calendarDates.appendChild(date); //add the day to the calendar
     }
 
+    for (j = 0; j < 96; j++){ //create time slots
+      timeSlot = document.createElement("option");
+      timeSlot.setAttribute("class", "timeSlot");
+      timeSlot.innerHTML = String(Math.floor(j/4)) +":"+ String((j%4)*15);
+      timeSlot.setAttribute("value",String(Math.floor(j/4)) +":"+ String((j%4)*15));
+      timeSlots.appendChild(timeSlot);
     for (j = 0; j < 96; j++){ //create timeslots
       timeSlot = document.createElement("DIV");
       timeSlot.setAttribute("class", "timeSlot"); //create time slot
