@@ -9,6 +9,10 @@
     .examGrid {
         grid-template-columns: auto auto;
     }
+
+    .exams{
+        font-size: 16px;
+    }
 }
 
 @media only screen and (min-width: 600px) {
@@ -16,7 +20,26 @@
         grid-template-columns: auto auto auto auto;
         row-gap: 20px;
     }
+
+    .exams{
+        font-size: 24px;
+    }
 }
+
+/* Extra small devices (phones, 600px and down) */
+/* @media only screen and (max-width: 600px) {...} */
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {...} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */
 
 body{
     background-color: rgb(115, 141, 223);
@@ -39,12 +62,12 @@ body{
     font-size: 16px;
 }
   
-  /* Title */
+/* Title */
 .title {
+    box-sizing: border-box;
     grid-area: header;
     text-align: center;
     border-bottom: 2px solid white;
-    margin-bottom: 15px;
 }
 
 
@@ -52,7 +75,6 @@ body{
 .examGrid{
     grid-area: main;
     display: grid;
-    align-items: center;
 }
 
 .exams{
@@ -62,7 +84,6 @@ body{
     align-items: center;
     color: white;
     background-color: rgb(115, 141, 223);
-    font-size: 24px;
     border-radius: 10px;
     transition-duration: 0.5s;
     cursor: pointer;
