@@ -1,12 +1,47 @@
 /* Overall styling */
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 600px) {
+    .examGrid {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .examGrid {
+        grid-template-columns: auto auto auto auto;
+        row-gap: 20px;
+    }
+}
+
 body{
     background-color: rgb(115, 141, 223);
     color: white;
     font-family: Helvetica, "Lucida Console", sans-serif;
 }
+ 
+.grid-container{
+    display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+    gap: 10px;
+    padding: 10px;
+}  
+
+.grid-container > div {
+    padding: 10px;
+    font-size: 16px;
+}
   
   /* Title */
 .title {
+    grid-area: header;
     text-align: center;
     border-bottom: 2px solid white;
     margin-bottom: 15px;
@@ -15,13 +50,13 @@ body{
 
 /* updated exams */
 .examGrid{
+    grid-area: main;
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    row-gap: 20px;
     align-items: center;
 }
 
 .exams{
+    box-sizing: content-box;
     text-align: center;
     display: grid;
     align-items: center;
