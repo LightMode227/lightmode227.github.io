@@ -5,344 +5,418 @@ body{
     text-align: center;
     color: white;
     user-select: none;
-  }
+}
   
-  /* Title */
+.grid-container{
+  display: grid;
+  grid-template-areas:
+  'header header header'
+  'main main main'
+  'footer footer footer';
+}  
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
   .title {
-    border-bottom: 2px solid white;
-    margin-bottom: 15px;
+    grid-area: 1 / span 3;
   }
-  
-  /* Forms */
-  .examForm{
-    font-size: 18px;
-    border-radius: 10px;
-    border: 5px solid white;
-    margin: auto;
-    width: 400px;
-    padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  .examForm {
+    grid-area: 2 / 1 / span 2 / span 3;
   }
-  
-  .section{
-    padding: 10px;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .title {
+    grid-area: 1 / span 3;
   }
-  
-  /* input name */
-  input[type=text]{
-    border: none;
-    border-radius: 5px;
-    margin: 10px;
+
+  .examForm {
+    grid-area: 2 / 1 / span 2 / span 3;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .title {
+    grid-area: 1 / span 3;
+  }
+
+  .examForm {
+    grid-area: 2 / span 1;
     width: 50%;
-    padding: 6px;
   }
-  
-  input[type=text]:focus{
-    outline: solid;
-    outline-color: rgb(115,185,223);
-  }
-  
-  /* Main select box */
-  .customSelect{
-    text-align: left;
-    font-size: 14px;
-    display: inline-block;
-    color: black;
-    position: relative;
-    background-color: white;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .customSelect select{
-    display: none;
-  }
-  
-  .selectSelected{
-    padding: 5px 0px;
-    cursor: pointer;
-    color: #4f4f4f;
-    font-weight: 600;
-    text-align: center;
-  }
-  
-  /* Options */
-  .selectItems div, selectSelected{
-    padding: 5px 3px;
-    cursor: pointer;
-  }
-  
-  .selectItems{
-    border-top: 2px solid transparent;
-    border-color: #949494 transparent transparent transparent;
-    position: absolute;
-    background-color: white;
-    top: 90%;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    border-radius: 0px 0px 5px 5px;
-  }
-  
-  .selectHide{
-    display: none;
-  }
-  
-  .selectItems div:hover{
-    background-color: rgb(193, 231, 251);
-    border-radius: 5px;
-  }
-  
-  
-  /* Date/time selection */
-  
-  /* normal display */
-  .date{
-    color: #4f4f4f;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: left;
-    background-color: white;
-    border-radius: 5px;
-    margin: 10px auto 10px;
-    width: 162px;
-  }
-  
-  #dateDisplay{
-    display: inline-block;
-    margin: 5px;
-    padding-left: 5px;
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .title {
+    grid-area: 1 / span 3;
   }
 
-  .time{
-    display: inline-block;
-    margin: 5px;
+  .examForm {
+    grid-area: 2 / span 1;
+    width: 33%;
   }
-  
-  .calendarIcon{
-    display: inline-block;
-    margin: 5px;
-    margin-right: 0px;
-    bottom: -2px;
-    position: absolute;
-  }
-  
-  .gridContainer{
-    cursor: pointer;
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    width: 15px;
-    height: 15px;
-    border-radius: 3px;
-    border: solid 2px;
-    border-color: #4d4d4d;
-  }
-  
-  .gridItem{
-    display: inline-grid;
-    background-color: #4d4d4d;
-    width: 3px;
-    height: 3px;
-    margin: auto;
-  }
-  
-  .top{
-    margin-bottom: 1px;
-    width: 5px;
-    height: 2px;
-  }
-  
-  /* selection display */
-  .customDateTime{
-    position: relative;
-    margin: 10px;
-  }
-  
-  /* calendar */
-  .calendarHide{
-    display: none;
-  }
-  
-  .calendar{
-    background-color: white;
-    position: absolute;
-    width: 176px;
-    height: 183.6px;
-    left: 91px;
-    border-radius: 8px;
-    top: 32px;
-    border: 3px solid rgb(115,185,223);
-    z-index: 99;
-  }
-  
-  .calendarDates{
-    padding: 2px;
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: auto auto auto auto auto auto auto;
-    grid-template-rows: auto auto auto auto auto auto;
-  }
-  
-  /* month */
-  .month{
-    color: black;
-    font-size: 18px;
-    border-bottom: 2px solid #b8b8b8;
-    padding-top: 3px;
-    margin-bottom: 2px;
-  }
-  
-  /* days */
-  .nMonth{
-    font-size: 12px;
-    display: inline-grid;
-    width: 20px;
-    height: 20px;
-    background-color: #b8b8b8;
-    border-radius: 5px;
-    margin: 2px;
-  }
-  
-  .day{
-    cursor: pointer;
-    font-size: 12px;
-    display: inline-grid;
-    width: 20px;
-    height: 20px;
-    background-color: #949494;
-    border-radius: 5px;
-    margin: 2px;
-  }
-  
-  .day:hover{
-    background-color: #707070;
-    margin: 1px;
-    padding: 1px;
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .title {
+    grid-area: 1 / span 3;
   }
 
-  /* time */
-  .timeSelector{
-    background-color: white;
-    border-radius: 0px 8px 8px 0px;
-    border-left: solid 2px;
-    border-color: #b8b8b8;
-    padding: 2px;
-    position: absolute;
-    overflow: auto;
-    height: 179.6px;
-    right: -35%;
-    top: 0%;
+  .examForm {
+    grid-area: 2 / span 1;
+    width: 20%;
   }
-  
-  .timeSlot{
-    color: #4d4d4d;
-    cursor: pointer;
-    border-radius: 3px;
-    border: solid 2px;
-    border-color: rgb(115,185,223);
-    margin: 5px;
-  }
-  
-  .timeSlot:hover{
-    margin: 5px 2px;
-    padding: 0px 2px;
-    /* background-color: rgba(115,185,223, 0.5);
-    border-color: rgba(115,185,223, 0); */
-  }
+}
 
-  .timeSelectorHide{
-    display: none;
-  }
+
+
+/* Title */
+.title {
+  box-sizing: border-box;
+  grid-area: header;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
   
-  /* scroll bar */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  ::-webkit-scrollbar-track { /* track */
-    background: #f1f1f1;
-    border-radius: 5px;
-  }
-  
-  ::-webkit-scrollbar-thumb { /* bar */
-    background: #888;
-    border-radius: 5px;
-    height: 10px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  
-  /* Use VC */
-  .container{
-    display: block;
-    position: relative;
-    padding-left: 15px;
-    width: 200px;
-    margin: 0px auto 0px;
-    cursor: pointer;
-  }
-  
-  .container input{
-    display: none;
-  }
-  
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    border-radius: 5px;
-    background-color: white;
-  }
-  
-  .container:hover input ~ .checkmark{
-    background-color: #ccc;
-  }
-  .container input:checked ~ .checkmark{
-    background-color: rgb(115,185,223);
-  }
-  
-  .checkmark:after{
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  .container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  .container .checkmark:after{
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
-  }
-  
-  
-  /* Confirm */
-  input[type=submit]{
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    margin: 40px 10px 10px;
-    background-color: rgb(115, 141, 223);
-    border-color: white;
-    border: 3px solid;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 8px 20px;
-  }
-  
-  input[type=submit]:hover{
-    background-color: rgb(115,185,223);
-  }
+/* Forms */
+.examForm{
+  grid-area: main;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 5px solid white;
+  margin: auto;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.section{
+  padding: 10px;
+}
+
+/* input name */
+input[type=text]{
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  width: 50%;
+  padding: 6px;
+}
+
+input[type=text]:focus{
+  outline: solid;
+  outline-color: rgb(115,185,223);
+}
+
+/* Main select box */
+.customSelect{
+  text-align: left;
+  font-size: 14px;
+  display: inline-block;
+  color: black;
+  position: relative;
+  background-color: white;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.customSelect select{
+  display: none;
+}
+
+.selectSelected{
+  padding: 5px 0px;
+  cursor: pointer;
+  color: #4f4f4f;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Options */
+.selectItems div, selectSelected{
+  padding: 5px 3px;
+  cursor: pointer;
+}
+
+.selectItems{
+  border-top: 2px solid transparent;
+  border-color: #949494 transparent transparent transparent;
+  position: absolute;
+  background-color: white;
+  top: 90%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.selectHide{
+  display: none;
+}
+
+.selectItems div:hover{
+  background-color: rgb(193, 231, 251);
+  border-radius: 5px;
+}
+
+
+/* Date/time selection */
+
+/* normal display */
+.date{
+  color: #4f4f4f;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: left;
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px auto 10px;
+  width: 162px;
+}
+
+#dateDisplay{
+  display: inline-block;
+  margin: 5px;
+  padding-left: 5px;
+}
+
+.time{
+  display: inline-block;
+  margin: 5px;
+}
+
+.calendarIcon{
+  display: inline-block;
+  margin: 5px;
+  margin-right: 0px;
+  bottom: -2px;
+  position: absolute;
+}
+
+.gridContainer{
+  cursor: pointer;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  border: solid 2px;
+  border-color: #4d4d4d;
+}
+
+.gridItem{
+  display: inline-grid;
+  background-color: #4d4d4d;
+  width: 3px;
+  height: 3px;
+  margin: auto;
+}
+
+.top{
+  margin-bottom: 1px;
+  width: 5px;
+  height: 2px;
+}
+
+/* selection display */
+.customDateTime{
+  position: relative;
+  margin: 10px;
+}
+
+/* calendar */
+.calendarHide{
+  display: none;
+}
+
+.calendar{
+  background-color: white;
+  position: absolute;
+  width: 176px;
+  height: 183.6px;
+  left: 91px;
+  border-radius: 8px;
+  top: 32px;
+  border: 3px solid rgb(115,185,223);
+  z-index: 99;
+}
+
+.calendarDates{
+  padding: 2px;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto auto;
+}
+
+/* month */
+.month{
+  color: black;
+  font-size: 18px;
+  border-bottom: 2px solid #b8b8b8;
+  padding-top: 3px;
+  margin-bottom: 2px;
+}
+
+/* days */
+.nMonth{
+  font-size: 12px;
+  display: inline-grid;
+  width: 20px;
+  height: 20px;
+  background-color: #b8b8b8;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.day{
+  cursor: pointer;
+  font-size: 12px;
+  display: inline-grid;
+  width: 20px;
+  height: 20px;
+  background-color: #949494;
+  border-radius: 5px;
+  margin: 2px;
+}
+
+.day:hover{
+  background-color: #707070;
+  margin: 1px;
+  padding: 1px;
+}
+
+/* time */
+.timeSelector{
+  background-color: white;
+  border-radius: 0px 8px 8px 0px;
+  border-left: solid 2px;
+  border-color: #b8b8b8;
+  padding: 2px;
+  position: absolute;
+  overflow: auto;
+  height: 179.6px;
+  right: -35%;
+  top: 0%;
+}
+
+.timeSlot{
+  color: #4d4d4d;
+  cursor: pointer;
+  border-radius: 3px;
+  border: solid 2px;
+  border-color: rgb(115,185,223);
+  margin: 5px;
+}
+
+.timeSlot:hover{
+  margin: 5px 2px;
+  padding: 0px 2px;
+  /* background-color: rgba(115,185,223, 0.5);
+  border-color: rgba(115,185,223, 0); */
+}
+
+.timeSelectorHide{
+  display: none;
+}
+
+/* scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track { /* track */
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb { /* bar */
+  background: #888;
+  border-radius: 5px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Use VC */
+.container{
+  display: block;
+  position: relative;
+  padding-left: 15px;
+  width: 200px;
+  margin: 0px auto 0px;
+  cursor: pointer;
+}
+
+.container input{
+  display: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.container:hover input ~ .checkmark{
+  background-color: #ccc;
+}
+.container input:checked ~ .checkmark{
+  background-color: rgb(115,185,223);
+}
+
+.checkmark:after{
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after{
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+
+/* Confirm */
+input[type=submit]{
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 40px 10px 10px;
+  background-color: rgb(115, 141, 223);
+  border-color: white;
+  border: 3px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 8px 20px;
+}
+
+input[type=submit]:hover{
+  background-color: rgb(115,185,223);
+}
