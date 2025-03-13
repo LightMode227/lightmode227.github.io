@@ -75,20 +75,20 @@ button:hover span{
 .rotary{
     border-color: rgb(115,185,223);
     margin: 10px;
-    width: 100%;
+    padding-left: 100%;
     height: 100%;
 }
   
 .rotary:hover{
     font-size: 24px;
     margin: 0px;
-    padding: 10px;
+    padding: 100% + 10px;
 }
 
 .fixed{
     border-color: rgb(115, 223, 135);
     margin: 10px;
-    width: 100%;
+    padding-left: 100%;
     height: 100%;
 }
 
