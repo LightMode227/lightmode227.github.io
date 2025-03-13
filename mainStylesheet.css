@@ -64,13 +64,29 @@ button:hover span{
 
 
 /* updated exams */
+.examGrid{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+}
+
 .rotary{
-    display: inline-grid;
     border-color: rgb(115,185,223);
     margin: 10px;
 }
   
 .rotary:hover{
+    font-size: 24px;
+    margin: 0px;
+    padding: 10px;
+}
+
+.fixed{
+    border-color: rgb(115, 223, 135);
+    margin: 10px;
+}
+
+.fixed:hover{
     font-size: 24px;
     margin: 0px;
     padding: 10px;
