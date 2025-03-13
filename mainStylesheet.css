@@ -61,13 +61,17 @@ button:hover span{
     font-size: 24px;
     background-color: rgb(115, 223, 135);
 }
-  
-  /* senior exam */
-.seniorList{
-    float: right;
+
+
+/* updated exams */
+.rotary{
+    display: inline-grid;
+    border-color: rgb(115,185,223);
+    margin: 10px;
 }
   
-.seniorList:hover{
+.rotary:hover{
     font-size: 24px;
-    background-color: rgb(206, 69, 69);
+    margin: 0px;
+    padding: 10px;
 }
