@@ -9,7 +9,7 @@
             <h1>Rotary Exam</h1>
         </div>
     
-        <form class="examForm" action="/index.html">
+        <form class="examForm" method="POST" action="/index.php">
     
             <div class="section">
                 <label for="robloxName">Enter your roblox name (not display name)</label>
