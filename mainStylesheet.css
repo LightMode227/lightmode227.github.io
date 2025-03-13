@@ -5,32 +5,50 @@
     box-sizing: border-box;
 }
 
+/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .examGrid {
         grid-template-columns: auto auto;
-    }
-
-    .exams{
-        font-size: 16px;
-    }
-}
-
-@media only screen and (min-width: 600px) {
-    .examGrid {
-        grid-template-columns: auto auto auto auto;
-        row-gap: 20px;
+        width: 100vw;
     }
 
     .exams{
         font-size: 24px;
+        width: 40vw;
+        margin: 2vw;
+        margin-left: 3vw;
+    }
+
+    .exams:hover{
+        padding: 2vw;
+        margin: 0;
+        margin-left: 1vw;
     }
 }
 
-/* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) {...} */
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 600px) {...} */
+@media only screen and (min-width: 600px) {
+    .examGrid {
+        grid-template-columns: auto auto auto auto;
+        width: 75vw;
+    }
+
+    .exams{
+        font-size: 24px;
+        width: 70%;
+        margin: 1vw;
+        margin-left: 3vw;
+    }
+
+    .exams:hover{
+        font-weight: bold;
+        padding: 1vw;
+        margin: 0;
+        margin-left: 2vw;
+    }
+}
+
+
 
 /* Medium devices (landscape tablets, 768px and up) */
 /* @media only screen and (min-width: 768px) {...} */
@@ -49,16 +67,13 @@ body{
  
 .grid-container{
     display: grid;
-  grid-template-areas:
+    grid-template-areas:
     'header'
     'main'
     'footer';
-    gap: 10px;
-    padding: 10px;
 }  
 
 .grid-container > div {
-    padding: 10px;
     font-size: 16px;
 }
   
@@ -67,7 +82,14 @@ body{
     box-sizing: border-box;
     grid-area: header;
     text-align: center;
+    padding-bottom: 10px;
     border-bottom: 2px solid white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.rotaryList{
+    grid-area: footer;
 }
 
 
@@ -75,27 +97,25 @@ body{
 .examGrid{
     grid-area: main;
     display: grid;
+    align-content: center;
+    padding: 2vw;
 }
 
 .exams{
     box-sizing: content-box;
     text-align: center;
     display: grid;
-    align-items: center;
+    align-content: center;
     color: white;
     background-color: rgb(115, 141, 223);
     border-radius: 10px;
     transition-duration: 0.5s;
     cursor: pointer;
-    margin: 5%;
-    height: 80%;
     aspect-ratio: 1 / 1;
 }
 
 .exams:hover{
     font-weight: bold;
-    padding: 5%;
-    margin: 0;
 }
 
 .rotary{
