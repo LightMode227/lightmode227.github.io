@@ -75,6 +75,8 @@ button:hover span{
 .rotary{
     border-color: rgb(115,185,223);
     margin: 10px;
+    width: 50px;
+    height: 50px;
 }
   
 .rotary:hover{
@@ -86,6 +88,8 @@ button:hover span{
 .fixed{
     border-color: rgb(115, 223, 135);
     margin: 10px;
+    width: 50px;
+    height: 50px;
 }
 
 .fixed:hover{
