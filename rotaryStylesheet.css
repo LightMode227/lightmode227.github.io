@@ -6,6 +6,11 @@ body{
     color: white;
     user-select: none;
 }
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
   
 .grid-container{
   display: grid;
