@@ -1,1 +1,255 @@
+/* general */
+body{
+    background-color: rgb(115, 141, 223);
+    font-family: Helvetica, "Lucida Console", sans-serif;
+    text-align: center;
+    color: white;
+    user-select: none;
+}
+  
+.grid-container{
+  display: grid;
+  grid-template-areas:
+  'header header header'
+  'main main main'
+  'footer footer footer';
+}  
 
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .title {
+    grid-area: 1 / span 3;
+  }
+
+  .examForm {
+    grid-area: 2 / 1 / span 2 / span 3;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .title {
+    grid-area: 1 / span 3;
+  }
+
+  .examForm {
+    grid-area: 2 / 1 / span 2 / span 3;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .title {
+    grid-area: 1 / span 3;
+  }
+
+  .examForm {
+    grid-area: 2 / span 1;
+    width: 50%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .title {
+    grid-area: 1 / span 3;
+  }
+
+  .examForm {
+    grid-area: 2 / span 1;
+    width: 400px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .title {
+    grid-area: 1 / span 3;
+  }
+
+  .examForm {
+    grid-area: 2 / span 1;
+    width: 400px;
+  }
+}
+
+/* + - buttons */
+button{
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 40px 10px 10px;
+  background-color: rgb(115, 141, 223);
+  border-color: white;
+  border: 3px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 8px 20px;
+}
+
+button:hover{
+  background-color: rgb(115,185,223);
+}
+
+/* Title */
+.title {
+  box-sizing: border-box;
+  grid-area: header;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+  
+/* Forms */
+.examForm{
+  grid-area: main;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 5px solid white;
+  margin: auto;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.section{
+  padding: 10px;
+}
+
+/* input name */
+input[type=text]{
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  width: 25px;
+  padding: 6px;
+}
+
+input[type=text]:focus{
+  outline: solid;
+  outline-color: rgb(115,185,223);
+}
+
+/* Main select box */
+.customSelect{
+  text-align: left;
+  font-size: 14px;
+  display: inline-block;
+  color: black;
+  position: relative;
+  background-color: white;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.customSelect select{
+  display: none;
+}
+
+.selectSelected{
+  padding: 5px 0px;
+  cursor: pointer;
+  color: #4f4f4f;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Options */
+.selectItems div, selectSelected{
+  padding: 5px 3px;
+  cursor: pointer;
+}
+
+.selectItems{
+  border-top: 2px solid transparent;
+  border-color: #949494 transparent transparent transparent;
+  position: absolute;
+  background-color: white;
+  top: 90%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.selectHide{
+  display: none;
+}
+
+.selectItems div:hover{
+  background-color: rgb(193, 231, 251);
+  border-radius: 5px;
+}
+
+/* Use VC */
+.container{
+  display: block;
+  position: relative;
+  padding-left: 15px;
+  width: 200px;
+  margin: 0px auto 0px;
+  cursor: pointer;
+}
+
+.container input{
+  display: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.container:hover input ~ .checkmark{
+  background-color: #ccc;
+}
+.container input:checked ~ .checkmark{
+  background-color: rgb(115,185,223);
+}
+
+.checkmark:after{
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after{
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+
+/* Confirm */
+input[type=submit]{
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 40px 10px 10px;
+  background-color: rgb(115, 141, 223);
+  border-color: white;
+  border: 3px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 8px 20px;
+}
+
+input[type=submit]:hover{
+  background-color: rgb(115,185,223);
+}
