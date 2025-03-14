@@ -99,7 +99,7 @@
   if (wd === 0){
     wd = 7;
   }
-  offset = Math.abs(wd-(dd%7));
+  offset = Math.abs(wd-(dd%7))-1;
   prevmm = daysInMonth(mm-2,yyyy);
 
   //setup calendar div for each custom date time
