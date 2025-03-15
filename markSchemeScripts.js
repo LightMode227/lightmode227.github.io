@@ -1,23 +1,21 @@
-// decrement value
-function decrement(button){
-    let inputs = document.getElementsByClassName(button.className);
-    let currentValue = (inputs[1]).value;
-    if (currentValue === null || currentValue <= 0){
+// increment value
+function textValue(inputClass, amount){
+    let inputs = document.getElementsByClassName(inputClass);
+    let currentValue = parseInt((inputs[1]).value);
+    if (currentValue === null){
         currentValue = 0;
     } else{
-        currentValue--;
+        currentValue +=  parseInt(amount);
     }
     (inputs[1]).value = currentValue;
 }
 
-// increment value
-function increment(button){
-    let inputs = document.getElementsByClassName(button.className);
-    let currentValue = (inputs[1]).value;
-    if (currentValue === null){
-        currentValue = 0;
+//change value of tick box
+function changeValue(tickBox, sectionClass){
+    if (tickBox.value != "1"){
+        tickBox.value = 1;
     } else{
-        currentValue++;
+        tickBox.value = -1;
     }
-    (inputs[1]).value = currentValue;
+    textValue(sectionClass, tickBox.value)
 }

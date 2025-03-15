@@ -12,25 +12,39 @@
       <div class="examForm">
       
         <div class="section">
-          <p>Marking point 1<button onclick="decrement(this)" class="input1"><div class="minus"></div></button><input type="text" style="width: 25px;" class="input1" value="2"><button onclick="increment(this)" class="input1"><div class="plus">+</div></button></p>
+          <p>Marking point 1 <button onclick="textValue(this.className, -1)" class="input1" style="font-weight: bold">-</button><input type="text" style="width: 25px;" class="input1" value="0"><button onclick="textValue(this.className, 1)" class="input1">+</button></p>
         </div>
 
         <div class="section">
-          <p>Marking point 2<button>-</button><input type="text" style="width: 25px;"><button>+</button></p>
+          <p>Marking point 2 <button onclick="textValue(this.className, -1)" class="input2" style="font-weight: bold">-</button><input type="text" style="width: 25px;" class="input2" value="0"><button onclick="textValue(this.className, 1)" class="input2">+</button></p>
         </div> 
 
         <div class="section">
+          <p>Marking point 3 <button onclick="textValue(this.className, -1)" class="input3" style="font-weight: bold">-</button><input type="text" style="width: 25px;" class="input3" value="0"><button onclick="textValue(this.className, 1)" class="input3">+</button></p>
         </div>
 
+        <!-- temporary proof of concept -->
         <div class="section">
-            <label class="container">Use VC for the exam
-                <input type="checkbox" id="VC">
+            <label class="container">rescue < 30s
+                <input type="checkbox" value="-1" onclick="changeValue(this, 'input4')" id="time"> 
                 <span class="checkmark"></span>
             </label>
+            <br>
+
+          <label class="container">was precise
+              <input type="checkbox" value="-1" onclick="changeValue(this, 'input4')" id="precision">
+              <span class="checkmark"></span>
+          </label>
+          <br>
+          <label class="container">was safe
+              <input type="checkbox" value="-1" onclick="changeValue(this, 'input4')" id="safety">
+              <span class="checkmark"></span>
+          </label>
+          <p>Rescue section total <button onclick="textValue(this.className, -1)" class="input4" style="font-weight: bold">-</button><input type="text" style="width: 25px;" class="input4" value="0"><button onclick="textValue(this.className, 1)" class="input4">+</button></p>
         </div>
 
         <div class="section">
-            <input type="submit" value="Confirm" class="confirm">
+            <input type="submit" value="Confirm" class="confirm" onclick="location.href='index.html'">
         </div>
       
       </div>
