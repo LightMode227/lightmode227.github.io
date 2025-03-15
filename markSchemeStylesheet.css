@@ -6,7 +6,12 @@ body{
     color: white;
     user-select: none;
 }
-  
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .grid-container{
   display: grid;
   grid-template-areas:
@@ -76,20 +81,32 @@ body{
 
 /* + - buttons */
 button{
+  display: inline-block;
   color: white;
   font-weight: bold;
   font-size: 16px;
-  margin: 40px 10px 10px;
   background-color: rgb(115, 141, 223);
   border-color: white;
-  border: 3px solid;
+  border: 2px solid;
   border-radius: 5px;
   cursor: pointer;
-  padding: 8px 20px;
+  width: 25px;
+  aspect-ratio: 1;
 }
 
 button:hover{
   background-color: rgb(115,185,223);
+}
+
+.minus{
+  background-color: white;
+  width: 80%;
+  height: 12%;
+  margin: auto;
+}
+
+.plus{
+  margin: auto;
 }
 
 /* Title */
@@ -125,6 +142,7 @@ input[type=text]{
   margin: 10px;
   width: 25px;
   padding: 6px;
+  color: black;
 }
 
 input[type=text]:focus{
