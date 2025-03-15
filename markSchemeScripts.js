@@ -4,6 +4,8 @@ function textValue(inputClass, amount){
     let currentValue = parseInt((inputs[1]).value);
     if (currentValue === null){
         currentValue = 0;
+    } else if (currentValue == 0 && amount < 0) {
+        currentValue = 0;
     } else{
         currentValue +=  parseInt(amount);
     }
