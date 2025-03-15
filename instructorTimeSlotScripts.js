@@ -34,7 +34,7 @@ function addSlot(day, event){
     let startPosition = event.offsetY;
     slot = document.createElement("div");
     slot.setAttribute("class", "slot");
-    slot.style.top = startPosition;
+    slot.style.top = startPosition-startPosition%20;
     slot.style.height = 0;
     day.appendChild(slot);
     newSlot = true; //update global variable to show a new slot has been created
@@ -44,19 +44,31 @@ function addSlot(day, event){
 
 //set size of time slot
 function sizeSlot(day, event){
-    if (newSlot && day === currentDay){ //only run this if there is a new slot
+    if (newSlot && day === currentDay){ //only run this if there is a new slot and in the correct day
         
         //get position of mouse and slot
         let newRelativePosition = event.offsetY;
         let daySlots = day.children;
         let slot = daySlots[daySlots.length-1]
-        
-        if (newRelativePosition-lastY > 20){ 
-            slot.style.height = parseInt(slot.style.height) + 20 + 'px'; //increment height by 10
-            lastY = newRelativePosition; //update Y
-        } else if (newRelativePosition-lastY < -20){
-            slot.style.height = parseInt(slot.style.height) - 20 + 'px'; //decrement height by 10
-            lastY = newRelativePosition; //update Y
+
+        if(day === event.target || slot === event.target){ //check if the mouse is over itself or the day
+            if (newRelativePosition-lastY > 20){ 
+                slot.style.height = parseInt(slot.style.height) + 20 + 'px'; //increment height by 10
+                lastY = newRelativePosition; //update Y
+            } else if (newRelativePosition-lastY < 0 && parseInt(slot.style.height) === 20){ //when it goes negative remove it
+                slot.style.height = parseInt(slot.style.height) - 20 + 'px';
+            } else if (newRelativePosition-lastY < -20){
+                slot.style.height = parseInt(slot.style.height) - 20 + 'px'; //decrement height by 10
+                lastY = newRelativePosition; //update Y
+            }
+        } else{ //if the mouse is over another slot end it
+            console.log(newRelativePosition, lastY);
+            if (newRelativePosition < 0){ //check if it is now relative to a new element
+                slot.style.height = parseInt(slot.style.height) + 20 + 'px'; //size it to meet slot if it's above a slot
+            } else{
+                slot.style.height = parseInt(slot.style.height) - 20 + 'px'; //remove it if it's below a slot
+            }
+            endSlot(day,event);
         }
     } else{
         endSlot(day,event);
