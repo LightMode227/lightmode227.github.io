@@ -1,0 +1,99 @@
+/* general */
+body{
+    background-color: rgb(115, 141, 223);
+    font-family: Helvetica, "Lucida Console", sans-serif;
+    text-align: center;
+    color: white;
+    user-select: none;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.grid-container{
+    padding: 10px;
+    display: grid;
+    grid-template-areas:
+    'header header header'
+    'menu menu menu'
+    'main main main';
+    height: 100%;
+    grid-template-rows: min-content max-content;
+}  
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .title {
+      grid-area: 1 / span 3;
+    }
+}
+  
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .title {
+      grid-area: 1 / span 3;
+    }
+}
+  
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .title {
+      grid-area: 1 / span 3;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .title {
+      grid-area: 1 / span 3;
+    }
+}
+  
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .title {
+        grid-area: 1 / span 3;
+    }
+}
+
+/* Title */
+.title {
+    grid-area: header;
+    box-sizing: border-box;
+    grid-area: header;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+/* week selector */
+.week{
+    grid-area: menu;
+    height: 20px;
+}
+
+/* days */
+.days {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    height: 100%;
+}
+
+.day{
+    background-color: white;
+    border-left: 2px solid #949494;
+    position: relative;
+}
+
+.slot{
+    background-color: #4f4f4f;
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+}
