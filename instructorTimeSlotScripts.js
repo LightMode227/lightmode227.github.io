@@ -1,26 +1,76 @@
+//add days to the week
+let week = document.getElementsByClassName("days");
+let today = new Date();
+let dayNum = today.getDate();
+for (i = 0; i < 7; i++){
+
+    //create new day
+    day = document.createElement("DIV");
+    day.setAttribute("class", "day");
+
+    //add functions for creating slot
+    day.addEventListener("mousedown", function(event) {
+        addSlot(this, event);
+    });
+
+    day.addEventListener("mousemove", function(event) {
+        sizeSlot(this, event);
+    });
+
+    day.addEventListener("mouseup", function(event) {
+        endSlot(this, event);
+    });
+
+    //set day number and add to calendar
+    day.innerHTML = dayNum + i;
+    (week[0]).appendChild(day);
+}
+
+
+
 //add time slot
-var newSlot
+var newSlot, currentDay, lastY
 function addSlot(day, event){
     let startPosition = event.offsetY;
     slot = document.createElement("div");
     slot.setAttribute("class", "slot");
     slot.style.top = startPosition;
+    slot.style.height = 0;
     day.appendChild(slot);
     newSlot = true; //update global variable to show a new slot has been created
+    currentDay = day;
+    lastY = event.offsetY; //update mouse initial position
 }
 
 //set size of time slot
-function endSlot(day, event){
-    if (newSlot){ //only run this if there is a new slot
-
+function sizeSlot(day, event){
+    if (newSlot && day === currentDay){ //only run this if there is a new slot
+        
         //get position of mouse and slot
         let newRelativePosition = event.offsetY;
         let daySlots = day.children;
         let slot = daySlots[daySlots.length-1]
         
+        if (newRelativePosition-lastY > 20){ 
+            slot.style.height = parseInt(slot.style.height) + 20 + 'px'; //increment height by 10
+            lastY = newRelativePosition; //update Y
+        } else if (newRelativePosition-lastY < -20){
+            slot.style.height = parseInt(slot.style.height) - 20 + 'px'; //decrement height by 10
+            lastY = newRelativePosition; //update Y
+        }
+    } else{
+        endSlot(day,event);
+    }
+}
+
+function endSlot(day, event){
+    if (newSlot && day === currentDay){
+        //get slot
+        let daySlots = day.children;
+        let slot = daySlots[daySlots.length-1]
+
         //make sure it's not too small
-        if (newRelativePosition-parseInt(slot.style.top) > 20){ 
-            slot.style.height = newRelativePosition-parseInt(slot.style.top); //set the height to top to new mouse position
+        if (parseInt(slot.style.height) > 0){ 
 
             //prevent creation of new DIV on mouse down
             slot.addEventListener('mousedown', function(e){
@@ -40,6 +90,6 @@ function endSlot(day, event){
         } else{
             slot.remove(); //remove slot if it is too small
         }
-        newSlot = false; //make sure to flag that there are no new slots (prevents creation while over existing one)
     }
+    newSlot = false; //make sure to flag that there are no new slots (prevents creation while over existing one)
 }
